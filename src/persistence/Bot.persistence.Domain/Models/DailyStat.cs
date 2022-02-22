@@ -6,7 +6,7 @@ public class DailyStat : BaseDocument
     ///     Date of the stats.
     /// </summary>
     public DateTime Date { get; set; }
-    
+
     /// <summary>
     ///     total commands used.
     /// </summary>

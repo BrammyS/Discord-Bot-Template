@@ -1,5 +1,4 @@
-﻿using System.Drawing;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.Versioning;
 using Color_Chan.Discord.Commands.Attributes;
 using Color_Chan.Discord.Commands.Attributes.ProvidedRequirements;
@@ -7,7 +6,6 @@ using Color_Chan.Discord.Commands.MessageBuilders;
 using Color_Chan.Discord.Commands.Modules;
 using Color_Chan.Discord.Core.Common.Models.Interaction;
 using Color_Chan.Discord.Core.Results;
-using Microsoft.VisualBasic;
 
 namespace Bot.Discord.Commands;
 
@@ -19,7 +17,7 @@ public class AboutCommands : SlashCommandModule
 {
     public const string AboutCommandName = "about";
     public const string AboutCommandDesc = "Get some information about the bot!";
-    
+
     /// <summary>
     ///     Get some misc information about the bot.
     /// </summary>

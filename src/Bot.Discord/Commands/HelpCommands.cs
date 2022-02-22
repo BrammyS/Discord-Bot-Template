@@ -37,6 +37,7 @@ public class HelpCommands : SlashCommandModule
     }
 
     // All the page embeds for the help command.
+
     #region Page Embeds
 
     public static readonly IDiscordEmbed Page1Embed =
@@ -46,14 +47,14 @@ public class HelpCommands : SlashCommandModule
             .WithField($"{Constants.SlashPrefix}{PongCommands.PingCommandName}", PongCommands.PingCommandDesc)
             .WithColor(Constants.Colors.Neutral)
             .Build();
-    
+
     public static readonly IDiscordEmbed Page2Embed =
         new DiscordEmbedBuilder()
             .WithTitle("Help | Info commands | Page 2")
             .WithField($"{Constants.SlashPrefix}{HelpCommandName}", HelpCommandDesc)
             .WithColor(Constants.Colors.Neutral)
             .Build();
-    
+
     public static readonly IDiscordEmbed Page3Embed =
         new DiscordEmbedBuilder()
             .WithTitle("Help | Misc commands | Page 3")

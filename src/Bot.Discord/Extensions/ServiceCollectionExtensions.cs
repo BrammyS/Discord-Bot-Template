@@ -16,21 +16,18 @@ public static class ServiceCollectionExtensions
         {
             throw new NullReferenceException("Please set the BOT_TOKEN env variable!");
         }
-        
+
         // Configure Color-Chan.Discord
         var config = new ColorChanConfigurations
         {
-            SlashCommandConfigs = slashOptions =>
-            {
-                slashOptions.SendDefaultErrorMessage = true;
-            }
+            SlashCommandConfigs = slashOptions => { slashOptions.SendDefaultErrorMessage = true; }
         };
-        
+
         services.AddSlashCommandPipeline<GuildDbPipeline>();
         services.AddSlashCommandPipeline<CommandLoggingPipeline>();
         services.AddComponentInteractionPipeline<ComponentLoggingPipeline>();
 
-        
+
         services.AddColorChanDiscord(token, Constants.PublicKey, Constants.BotId, config);
         services.AddMongoDb();
 

@@ -1,6 +1,5 @@
 ﻿using Bot.persistence.Domain.Models;
 using Bot.persistence.Repositories;
-using MongoDB.Bson;
 using MongoDB.Driver;
 
 namespace Bot.persistence.MongoDb.Repositories;

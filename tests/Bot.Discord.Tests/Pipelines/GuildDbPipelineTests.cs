@@ -3,5 +3,4 @@
 // Todo: Add tests.
 public class GuildDbPipelineTests
 {
-    
 }

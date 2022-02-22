@@ -15,7 +15,7 @@ public class SayCommands : SlashCommandModule
 {
     public const string SayCommandName = "say";
     public const string SayCommandDesc = "Say something with the bot!";
-    
+
     /// <summary>
     ///     A simple say command where the bot will reply back with the message that it is provided.
     /// </summary>
@@ -25,7 +25,7 @@ public class SayCommands : SlashCommandModule
     /// </returns>
     [SlashCommand(SayCommandName, SayCommandDesc)]
     public Task<Result<IDiscordInteractionResponse>> SayAsync
-    (           
+    (
         [SlashCommandOption("text", "The text that will be returned.", true)]
         string text
     )

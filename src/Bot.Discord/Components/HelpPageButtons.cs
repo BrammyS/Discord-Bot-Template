@@ -25,14 +25,14 @@ public class HelpPageButtons : ComponentInteractionModule
     private readonly ILogger<HelpPageButtons> _logger;
 
     /// <summary>
-    ///     Initializes a new <see cref="HelpPageButtons"/>.
+    ///     Initializes a new <see cref="HelpPageButtons" />.
     /// </summary>
     /// <param name="logger">The Logger that will be used to log messages.</param>
     public HelpPageButtons(ILogger<HelpPageButtons> logger)
     {
         _logger = logger;
     }
-    
+
     /// <summary>
     ///     Change the page of a help page embed.
     /// </summary>
@@ -44,7 +44,7 @@ public class HelpPageButtons : ComponentInteractionModule
     public Task<Result<IDiscordInteractionResponse>> GetHelpPage()
     {
         var responseBuilder = new InteractionResponseBuilder();
-        
+
         // Try to get the current embed containing the current page number.
         _ = Context.Message ?? throw new NullReferenceException($"{nameof(Context.Message)} can not be null");
         var embed = Context.Message.Embeds.FirstOrDefault();
@@ -75,7 +75,7 @@ public class HelpPageButtons : ComponentInteractionModule
 
         return Task.FromResult(FromSuccess(responseBuilder.Build()));
     }
-    
+
     private int GetRequestedPageNum(IDiscordEmbed embed)
     {
         // Get the current page number from the title.
@@ -107,9 +107,9 @@ public class HelpPageButtons : ComponentInteractionModule
 
     private IDiscordEmbed GetHelpPageBuilder(int pageNum)
     {
-        if (_logger.IsEnabled(LogLevel.Debug)) 
+        if (_logger.IsEnabled(LogLevel.Debug))
             _logger.LogDebug("Loading help page {Page}", pageNum.ToString());
-        
+
         return pageNum switch
         {
             1 => HelpCommands.Page1Embed,
@@ -118,7 +118,7 @@ public class HelpPageButtons : ComponentInteractionModule
             _ => throw new ArgumentOutOfRangeException(nameof(pageNum), $"The provided page number does not exist. Value {pageNum}.")
         };
     }
-    
+
     #region Help Buttons
 
     public static readonly IDiscordComponent ButtonsNoBack =
@@ -146,5 +146,4 @@ public class HelpPageButtons : ComponentInteractionModule
             .Build();
 
     #endregion
-    
 }

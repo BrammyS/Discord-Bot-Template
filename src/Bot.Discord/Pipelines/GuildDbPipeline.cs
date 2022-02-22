@@ -23,7 +23,7 @@ public class GuildDbPipeline : ISlashCommandPipeline
         _logger = logger;
         _unitOfWork = unitOfWork;
     }
-    
+
     /// <inheritdoc />
     public async Task<Result<IDiscordInteractionResponse>> HandleAsync(ISlashCommandContext context, SlashCommandHandlerDelegate next)
     {
@@ -32,14 +32,14 @@ public class GuildDbPipeline : ISlashCommandPipeline
         {
             return await next();
         }
-        
+
         // Add a new guild to the database if it doesn't exist.
         var exists = await _unitOfWork.Servers.ExistsAsync(x => x.GuildId == context.GuildId.Value).ConfigureAwait(false);
         if (!exists)
         {
-            if(_logger.IsEnabled(LogLevel.Information))
-                _logger.LogInformation("Adding a new guild to the database ID: {Id}" , context.GuildId.Value.ToString());
-            
+            if (_logger.IsEnabled(LogLevel.Information))
+                _logger.LogInformation("Adding a new guild to the database ID: {Id}", context.GuildId.Value.ToString());
+
             await _unitOfWork.Servers.AddAsync(new Server
             {
                 GuildId = context.GuildId.Value,

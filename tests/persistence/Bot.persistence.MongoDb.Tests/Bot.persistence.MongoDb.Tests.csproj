@@ -7,19 +7,19 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="FluentAssertions" Version="6.5.1" />
+        <PackageReference Include="FluentAssertions" Version="6.5.1"/>
         <PackageReference Include="GitHubActionsTestLogger" Version="1.3.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Moq" Version="4.16.1" />
-        <PackageReference Include="nunit" Version="3.13.2" />
-        <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0" />
+        <PackageReference Include="Moq" Version="4.16.1"/>
+        <PackageReference Include="nunit" Version="3.13.2"/>
+        <PackageReference Include="NUnit3TestAdapter" Version="4.2.1"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.1.0"/>
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\persistence\Bot.persistence.MongoDb\Bot.persistence.MongoDb.csproj" />
+        <ProjectReference Include="..\..\..\src\persistence\Bot.persistence.MongoDb\Bot.persistence.MongoDb.csproj"/>
     </ItemGroup>
-    
+
 </Project>

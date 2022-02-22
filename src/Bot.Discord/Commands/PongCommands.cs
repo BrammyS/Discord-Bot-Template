@@ -13,7 +13,7 @@ public class PongCommands : SlashCommandModule
 {
     public const string PingCommandName = "ping";
     public const string PingCommandDesc = "Ping Pong!";
-    
+
     /// <summary>
     ///     A simple Ping Pong command.
     /// </summary>
