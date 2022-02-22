@@ -11,10 +11,6 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddDiscord(this IServiceCollection services)
     {
-        // Todo: Replace the publicKey and the botId with yours. https://discord.com/developers/applications.
-        const string publicKey = "5d7890af1ce9b286d76e8129891e8acff77782a1b2e6f06e6023fa09557c8c1d";
-        const long botId = 541336442979483658;
-        
         var token = Environment.GetEnvironmentVariable("BOT_TOKEN");
         if (token is null)
         {
@@ -35,7 +31,7 @@ public static class ServiceCollectionExtensions
         services.AddComponentInteractionPipeline<ComponentLoggingPipeline>();
 
         
-        services.AddColorChanDiscord(token, publicKey, botId, config);
+        services.AddColorChanDiscord(token, Constants.PublicKey, Constants.BotId, config);
         services.AddMongoDb();
 
         return services;
