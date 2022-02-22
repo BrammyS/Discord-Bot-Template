@@ -30,6 +30,7 @@ public static class ServiceCollectionExtensions
             }
         };
         
+        services.AddSlashCommandPipeline<GuildDbPipeline>();
         services.AddSlashCommandPipeline<CommandLoggingPipeline>();
         services.AddComponentInteractionPipeline<ComponentLoggingPipeline>();
 
