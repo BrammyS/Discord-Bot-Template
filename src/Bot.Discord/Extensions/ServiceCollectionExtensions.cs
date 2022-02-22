@@ -1,4 +1,7 @@
-﻿using Color_Chan.Discord.Configurations;
+﻿using Bot.Discord.Pipelines;
+using Bot.persistence.MongoDb.Extensions;
+using Color_Chan.Discord.Commands.Extensions;
+using Color_Chan.Discord.Configurations;
 using Color_Chan.Discord.Extensions;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -27,7 +30,12 @@ public static class ServiceCollectionExtensions
             }
         };
         
+        services.AddSlashCommandPipeline<CommandLoggingPipeline>();
+        services.AddComponentInteractionPipeline<ComponentLoggingPipeline>();
+
+        
         services.AddColorChanDiscord(token, publicKey, botId, config);
+        services.AddMongoDb();
 
         return services;
     }
