@@ -28,15 +28,4 @@ public interface IServerRepository : IRepository<Server>
     ///     The task result contains the requested <see cref="Server" />.
     /// </returns>
     Task<Server> GetOrAddServerAsync(ulong id, string serverName, int memberCount);
-
-    /// <summary>
-    ///     Check if the server exists in the database and adds it if it doesn't exist.
-    /// </summary>
-    /// <param name="id">The Id of the guild that you want check.</param>
-    /// <param name="serverName">The Name of the guild that you want to check.</param>
-    /// <param name="memberCount">The Member count of the guild that you want to check.</param>
-    /// <returns>
-    ///     A task that represents the asynchronous check operation.
-    /// </returns>
-    Task CheckIfServerExistsAsync(ulong id, string serverName, int memberCount);
 }

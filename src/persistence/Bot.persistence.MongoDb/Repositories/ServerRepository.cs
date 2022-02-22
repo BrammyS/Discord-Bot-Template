@@ -39,17 +39,4 @@ public class ServerRepository : Repository<Server>, IServerRepository
         }).ConfigureAwait(false);
         return await _mongoCollection.Find(x => x.GuildId == id).FirstOrDefaultAsync().ConfigureAwait(false);
     }
-
-    /// <inheritdoc />
-    public async Task CheckIfServerExistsAsync(ulong id, string serverName, int memberCount)
-    {
-        var result = await _mongoCollection.CountDocumentsAsync(x => x.GuildId == id).ConfigureAwait(false);
-        if (result > 0) return;
-        await AddAsync(new Server
-        {
-            GuildId = id,
-            Name = serverName,
-            TotalMembers = memberCount,
-        }).ConfigureAwait(false);
-    }
 }
