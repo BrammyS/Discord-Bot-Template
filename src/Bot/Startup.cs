@@ -1,3 +1,4 @@
+using Bot.Configurations;
 using Bot.Discord.Extensions;
 using Color_Chan.Discord.Extensions;
 
@@ -17,6 +18,10 @@ namespace Bot
         {
             services.AddDiscord();
             services.AddControllers();
+            
+            services.ConfigureCors();
+            services.ConfigureApiVersioning();
+            services.ConfigureForProxyServers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
