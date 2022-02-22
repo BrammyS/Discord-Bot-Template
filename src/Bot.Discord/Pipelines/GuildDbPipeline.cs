@@ -43,8 +43,8 @@ public class GuildDbPipeline : ISlashCommandPipeline
             await _unitOfWork.Servers.AddAsync(new Server
             {
                 GuildId = context.GuildId.Value,
-                Name = context.Guild!.Name,
-                TotalMembers = context.Guild.ApproximateMemberCount!.Value,
+                Name = context.Guild?.Name ?? "Unknown guild name",
+                TotalMembers = context.Guild?.MemberCount ?? 0
             }).ConfigureAwait(false);
         }
 
