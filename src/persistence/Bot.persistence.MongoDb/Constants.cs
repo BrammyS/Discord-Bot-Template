@@ -2,6 +2,6 @@
 
 public class Constants
 {
-    // Todo: Replace with the preferred database name.
+    // Todo: OPTIONAL Replace with the preferred database name.
     public const string DatabaseName = "Bot";
 }
