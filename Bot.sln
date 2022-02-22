@@ -1,8 +1,30 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B6273876-4DC1-4EFF-9196-AF3DD39E5375}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{83117B5E-AF2C-4014-9511-CBB94D48460B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot", "src\Bot\Bot.csproj", "{894CA837-79A3-4DA2-9225-DEF95D20C1BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bot.Discord", "src\Bot.Discord\Bot.Discord.csproj", "{C9A5A7B9-B98C-439E-A57E-14C3183A6F28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{894CA837-79A3-4DA2-9225-DEF95D20C1BD} = {B6273876-4DC1-4EFF-9196-AF3DD39E5375}
+		{C9A5A7B9-B98C-439E-A57E-14C3183A6F28} = {B6273876-4DC1-4EFF-9196-AF3DD39E5375}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{894CA837-79A3-4DA2-9225-DEF95D20C1BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{894CA837-79A3-4DA2-9225-DEF95D20C1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{894CA837-79A3-4DA2-9225-DEF95D20C1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{894CA837-79A3-4DA2-9225-DEF95D20C1BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9A5A7B9-B98C-439E-A57E-14C3183A6F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9A5A7B9-B98C-439E-A57E-14C3183A6F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9A5A7B9-B98C-439E-A57E-14C3183A6F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9A5A7B9-B98C-439E-A57E-14C3183A6F28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
