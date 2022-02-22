@@ -10,7 +10,6 @@ namespace Bot.persistence.MongoDb.Tests.Configurations
         [TestCaseSource(nameof(GetAllConfigurators))]
         public void Should_register_collection(ICollectionConfigurator configurator)
         {
-            // Todo: Get get the collection type and check if it all properties are mapped.
             Assert.DoesNotThrow(configurator.ConfigureCollection);
         }
 
