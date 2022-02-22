@@ -24,7 +24,7 @@
     A simple ready to use Discord Bot Template using slash commands and buttons!
     <br />
     <br />
-    <a href="https://github.com/BrammyS/Discord-Bot-Template">View Demo</a>
+    <a href="https://discord.com/oauth2/authorize?client_id=541336442979483658&permissions=268561494&scope=applications.commands%20bot">View Demo</a>
     ·
     <a href="https://github.com/BrammyS/Discord-Bot-Template/issues">Report Bug</a>
     ·
@@ -68,6 +68,10 @@ This template includes basic commands including a help command with multiple pag
 - Persistent command request logging
 - Command usage metrics
 - MongoDB connection
+
+### Default commands
+
+![Default commands image](https://cdn.brammys.com/file/brammys/screenshots/2022/02/2BihLcHT0XJRxhIGs5el3xELXgKAjChIEowCdtJXUeigSuUna93f2kjne69KwLoe.png)
 
 ### Built With
 
