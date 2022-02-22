@@ -34,6 +34,7 @@ public class SayCommands : SlashCommandModule
         var embed = new DiscordEmbedBuilder()
                     .WithDescription(text)
                     .WithColor(Constants.Colors.Successful)
+                    .WithTimeStamp()
                     .Build();
 
         //  Return the response to Discord.
