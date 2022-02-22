@@ -12,9 +12,9 @@ public static class SerilogConfig
     {
         Log.Logger = new LoggerConfiguration()
                      #if DEBUG
-                     .MinimumLevel.Information()
+                     .MinimumLevel.Debug()
                      #else
-                         .MinimumLevel.Warning()
+                         .MinimumLevel.Information()
                      #endif
                      .Enrich.WithThreadId()
                      .Enrich.WithProcessId()
