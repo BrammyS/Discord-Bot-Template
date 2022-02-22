@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Bot.persistence.Domain\Bot.persistence.Domain.csproj" />
+    </ItemGroup>
+
 </Project>
