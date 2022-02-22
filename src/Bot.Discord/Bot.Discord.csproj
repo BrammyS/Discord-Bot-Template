@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Color-Chan.Discord" Version="1.10.10"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\persistence\Bot.persistence.MongoDb\Bot.persistence.MongoDb.csproj"/>
+    </ItemGroup>
+
+</Project>
