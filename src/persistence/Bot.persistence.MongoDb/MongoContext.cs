@@ -14,15 +14,7 @@ public class MongoContext : BaseMongoContext
     /// </summary>
     public MongoContext()
     {
-        // Todo: Replace this with your MongoDB connection URL. https://docs.mongodb.com/manual/reference/connection-string/
-        const string connectionString = "";
-
-        if (string.IsNullOrWhiteSpace(connectionString))
-        {
-            throw new NullReferenceException("Please provide your MongoDb connection string.");
-        }
-        
-        var client = new MongoClient(connectionString);
+        var client = new MongoClient(ConnectionStringHelper.GetMongoDbConnectionString());
         _database = client.GetDatabase("Bot");
     }
 
