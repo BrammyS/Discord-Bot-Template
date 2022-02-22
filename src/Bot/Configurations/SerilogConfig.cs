@@ -1,4 +1,5 @@
-﻿using Serilog;
+﻿using Bot.persistence.MongoDb.LoggingSink;
+using Serilog;
 
 namespace Bot.Configurations;
 
@@ -25,6 +26,7 @@ public static class SerilogConfig
                      .WriteTo.Async(writeTo =>
                      {
                          writeTo.Console();
+                         writeTo.MongoDb();
                      }).CreateLogger();
     }
 
