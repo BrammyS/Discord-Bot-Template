@@ -160,4 +160,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-shield]: https://img.shields.io/github/issues/BrammyS/Discord-Bot-Template?style=for-the-badge
 [issues-url]: https://github.com/BrammyS/Discord-Bot-Template/issues
 [license-shield]: https://img.shields.io/github/license/BrammyS/Discord-Bot-Template?style=for-the-badge
-[license-url]: https://github.com/BrammyS/Discord-Bot-Template/blob/main/.github/LICENSE
+[license-url]: https://github.com/BrammyS/Discord-Bot-Template/blob/main/LICENSE
