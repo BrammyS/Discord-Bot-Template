@@ -90,6 +90,15 @@ To get a local copy up and running follow these simple steps.
 
 ### Installation
 
+#### Using the template
+
+See the [Create reposotiry from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) guide for a more detailed explanation.
+1. Navigate to the main page of the repository.
+2. Above the file list, click `Use this template`.
+![Use template button](https://cdn.brammys.com/file/brammys/screenshots/2022/02/use-this-template-button.png)  
+3. Enter the name for your new repository and choose a visibility option.
+4. Click the `Create repositoiry from template` button.
+
 #### Cloning
 
 1. Clone the repo
