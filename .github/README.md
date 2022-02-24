@@ -77,6 +77,7 @@ This template includes basic commands including a help command with multiple pag
 
 * [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0)
 * [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0)
+* [Color-Chan.Discord](https://github.com/Color-Chan/Color-Chan.Discord)
 
 <!-- GETTING STARTED -->
 
@@ -157,7 +158,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Acknowledgements
 
-* [Color-Chan.Discord](https://github.com/Color-Chan/Color-Chan.Discord)
 * [Mongodb](https://www.mongodb.com/)
 * [Discord](https://discord.com/developers/docs/intro)
 
