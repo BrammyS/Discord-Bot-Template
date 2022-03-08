@@ -78,6 +78,7 @@ This template includes basic commands including a help command with multiple pag
 * [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0)
 * [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0)
 * [Color-Chan.Discord](https://github.com/Color-Chan/Color-Chan.Discord)
+* [Serilog.Sinks.Mongodb.TimeSeries](https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries)
 
 <!-- GETTING STARTED -->
 
