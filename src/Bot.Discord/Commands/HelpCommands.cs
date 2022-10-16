@@ -59,6 +59,7 @@ public class HelpCommands : SlashCommandModule
         new DiscordEmbedBuilder()
             .WithTitle("Help | Misc commands | Page 3")
             .WithField($"{Constants.SlashPrefix}{AboutCommands.AboutCommandName}", AboutCommands.AboutCommandDesc)
+            .WithField($"{Constants.SlashPrefix}{InviteCommands.InviteCommandName}", InviteCommands.InviteCommandDesc)
             .WithColor(Constants.Colors.Neutral)
             .Build();
 
