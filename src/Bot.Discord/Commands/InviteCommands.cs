@@ -1,9 +1,9 @@
-﻿using Bot.Discord.Components;
-using Color_Chan.Discord.Commands.Attributes;
+﻿using Color_Chan.Discord.Commands.Attributes;
 using Color_Chan.Discord.Commands.Attributes.ProvidedRequirements;
 using Color_Chan.Discord.Commands.MessageBuilders;
 using Color_Chan.Discord.Commands.Modules;
-using Color_Chan.Discord.Core.Common.Models.Embed;
+using Color_Chan.Discord.Core.Common.API.DataModels;
+using Color_Chan.Discord.Core.Common.Models;
 using Color_Chan.Discord.Core.Common.Models.Interaction;
 using Color_Chan.Discord.Core.Results;
 
@@ -18,7 +18,6 @@ public class InviteCommands : SlashCommandModule
     public const string InviteCommandName = "invite";
     public const string InviteCommandDesc = "Invite the bot somewhere else!";
 
-
     /// <summary>
     ///     An invitation command where the bot will reply back with a link to be added to other servers.
     /// </summary>
@@ -28,21 +27,25 @@ public class InviteCommands : SlashCommandModule
     [SlashCommand(InviteCommandName, InviteCommandDesc)]
     public Task<Result<IDiscordInteractionResponse>> InviteAsync()
     {
+        var inviteMeEmbed = new DiscordEmbedBuilder()
+                    .WithTitle("Invite me")
+                    .WithDescription("I need more friends, add me to other Discord servers!")
+                    .WithColor(Constants.Colors.Successful)
+                    .WithTimeStamp()
+                    .Build();
+
         // Build the embedded response.
         var inviteResponse = new InteractionResponseBuilder()
-                    .WithEmbed(InviteMeEmbed)
-                    .WithComponent(InviteButtons.InviteMe)
+                    .WithEmbed(inviteMeEmbed)
+                    .WithComponent(InviteMe)
                     .Build();
 
         //  Return the response to Discord.
         return Task.FromResult(FromSuccess(inviteResponse));
     }
 
-    public static readonly IDiscordEmbed InviteMeEmbed =
-        new DiscordEmbedBuilder()
-            .WithTitle("Invite me")
-            .WithDescription("I need more friends, add me to other Discord servers!")
-            .WithColor(Constants.Colors.Successful)
-            .WithTimeStamp()
+    public static readonly IDiscordComponent InviteMe =
+        new ActionRowComponentBuilder()
+            .WithButton("Invite me!", DiscordButtonStyle.Link, null, $"https://discord.com/api/oauth2/authorize?client_id={Constants.BotId}&permissions=0&scope=bot%20applications.commands")
             .Build();
 }
