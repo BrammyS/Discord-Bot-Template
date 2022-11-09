@@ -75,8 +75,8 @@ This template includes basic commands including a help command with multiple pag
 
 ### Built With
 
-* [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0)
-* [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-6.0)
+* [.NET 7](https://dotnet.microsoft.com/download/dotnet/7.0)
+* [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0)
 * [Color-Chan.Discord](https://github.com/Color-Chan/Color-Chan.Discord)
 * [Serilog.Sinks.Mongodb.TimeSeries](https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries)
 
@@ -88,7 +88,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* [.NET 6](https://dotnet.microsoft.com/download/dotnet/6.0)
+* [.NET 7](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 ### Installation
 
