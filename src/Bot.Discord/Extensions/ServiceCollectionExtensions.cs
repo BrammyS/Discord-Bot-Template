@@ -23,10 +23,8 @@ public static class ServiceCollectionExtensions
             SlashCommandConfigs = slashOptions => { slashOptions.SendDefaultErrorMessage = true; }
         };
 
-        services.AddSlashCommandPipeline<GuildDbPipeline>();
-        services.AddSlashCommandPipeline<CommandLoggingPipeline>();
-        services.AddComponentInteractionPipeline<ComponentLoggingPipeline>();
-
+        services.AddInteractionPipeline<GuildDbPipeline>();
+        services.AddInteractionPipeline<InteractionLoggingPipeline>();
 
         services.AddColorChanDiscord(token, Constants.PublicKey, Constants.BotId, config);
         services.AddMongoDb();

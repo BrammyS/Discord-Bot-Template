@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Bot.Discord.Pipelines;
 
-public class GuildDbPipeline : ISlashCommandPipeline
+public class GuildDbPipeline : IInteractionPipeline
 {
     private readonly ILogger<GuildDbPipeline> _logger;
     private readonly IUnitOfWork _unitOfWork;
@@ -25,7 +25,7 @@ public class GuildDbPipeline : ISlashCommandPipeline
     }
 
     /// <inheritdoc />
-    public async Task<Result<IDiscordInteractionResponse>> HandleAsync(ISlashCommandContext context, SlashCommandHandlerDelegate next)
+    public async Task<Result<IDiscordInteractionResponse>> HandleAsync(IInteractionContext context, InteractionHandlerDelegate next)
     {
         // Skip commands that were used outside of a guild.
         if (context.GuildId is null)
