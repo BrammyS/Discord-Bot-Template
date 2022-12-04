@@ -9,13 +9,15 @@ public class Program
 {
     public static async Task<int> Main(string[] args)
     {
-        SerilogConfig.Configure();
-
         try
         {
-            Log.Information("Starting Bot web host");
-
             var host = CreateHostBuilder(args).Build();
+
+            var configuration = host.Services.GetRequiredService<IConfiguration>();
+            SerilogConfig.Configure(configuration);
+            
+            Log.Information("Starting Bot web host");
+            
             await host.RegisterSlashCommandsAsync(Assembly.Load("Bot.Discord")).ConfigureAwait(false);
             await host.RunAsync().ConfigureAwait(false);
 
@@ -28,7 +30,7 @@ public class Program
         }
         finally
         {
-            Log.CloseAndFlush();
+            await Log.CloseAndFlushAsync();
         }
     }
 

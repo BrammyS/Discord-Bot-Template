@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using Microsoft.Extensions.Configuration;
+using MongoDB.Driver;
 using Serilog;
 using Serilog.Configuration;
 using Serilog.Sinks.Mongodb.TimeSeries.Configurations;
@@ -12,13 +13,14 @@ public static class MongoDbLogSink
     ///     Add a MongoDB log sink to serilog.
     ///     This will save all the logs to the database.
     /// </summary>
-    /// <param name="configuration">Controls sink configuration.</param>
+    /// <param name="sinkConfiguration">Controls sink configuration.</param>
+    /// <param name="configuration">The <see cref="IConfiguration"/> containing the application secrets and configurations.</param>
     /// <returns>
     ///     The sink configurations.
     /// </returns>
-    public static LoggerConfiguration MongoDb(this LoggerSinkConfiguration configuration)
+    public static LoggerConfiguration MongoDb(this LoggerSinkConfiguration sinkConfiguration, IConfiguration configuration)
     {
-        var client = new MongoClient(ConnectionStringHelper.GetMongoDbConnectionString());
+        var client = new MongoClient(ConnectionStringHelper.GetMongoDbConnectionString(configuration));
         var mongoDatabase = client.GetDatabase(Constants.DatabaseName);
 
         var configs = new MongoDbTimeSeriesSinkConfig(mongoDatabase)
@@ -29,6 +31,6 @@ public static class MongoDbLogSink
             LogsExpireAfter = TimeSpan.FromDays(7)
         };
 
-        return configuration.MongoDbTimeSeriesSink(configs);
+        return sinkConfiguration.MongoDbTimeSeriesSink(configs);
     }
 }

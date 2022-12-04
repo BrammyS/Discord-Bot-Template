@@ -3,18 +3,19 @@ using Bot.persistence.MongoDb.Extensions;
 using Color_Chan.Discord.Commands.Extensions;
 using Color_Chan.Discord.Configurations;
 using Color_Chan.Discord.Extensions;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Bot.Discord.Extensions;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddDiscord(this IServiceCollection services)
+    public static IServiceCollection AddDiscord(this IServiceCollection services, IConfiguration configuration)
     {
-        var token = Environment.GetEnvironmentVariable("BOT_TOKEN");
+        var token = configuration["BOT_TOKEN"];
         if (token is null)
         {
-            throw new NullReferenceException("Please set the BOT_TOKEN env variable!");
+            throw new NullReferenceException("Please set the BOT_TOKEN configuration!");
         }
 
         // Configure Color-Chan.Discord
