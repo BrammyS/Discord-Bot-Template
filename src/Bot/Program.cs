@@ -15,9 +15,9 @@ public class Program
 
             var configuration = host.Services.GetRequiredService<IConfiguration>();
             SerilogConfig.Configure(configuration);
-            
+
             Log.Information("Starting Bot web host");
-            
+
             await host.RegisterSlashCommandsAsync(Assembly.Load("Bot.Discord")).ConfigureAwait(false);
             await host.RunAsync().ConfigureAwait(false);
 

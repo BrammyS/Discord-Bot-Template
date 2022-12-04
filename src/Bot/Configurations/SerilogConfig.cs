@@ -8,7 +8,7 @@ public static class SerilogConfig
     /// <summary>
     ///     Configures misc settings for serilog.
     /// </summary>
-    /// <param name="configuration">The <see cref="IConfiguration"/> containing the application secrets and configurations.</param>
+    /// <param name="configuration">The <see cref="IConfiguration" /> containing the application secrets and configurations.</param>
     public static void Configure(IConfiguration configuration)
     {
         Log.Logger = new LoggerConfiguration()
