@@ -14,7 +14,7 @@ public static class MongoDbLogSink
     ///     This will save all the logs to the database.
     /// </summary>
     /// <param name="sinkConfiguration">Controls sink configuration.</param>
-    /// <param name="configuration">The <see cref="IConfiguration"/> containing the application secrets and configurations.</param>
+    /// <param name="configuration">The <see cref="IConfiguration" /> containing the application secrets and configurations.</param>
     /// <returns>
     ///     The sink configurations.
     /// </returns>
