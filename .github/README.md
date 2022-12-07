@@ -15,7 +15,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/BrammyS/Discord-Bot-Template">
-    <img src="https://cdn.brammys.com/file/brammys/2022/02/9c725f64003b63d995003932536c1064.png" style="border-radius: 15%" alt="Logo" width="100">
+    <img src="https://cdn.brammys.com/2022/02/9c725f64003b63d995003932536c1064.png" style="border-radius: 15%" alt="Logo" width="100">
   </a>
 
 <h3 align="center">Discord Bot Template</h3>
