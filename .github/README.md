@@ -123,14 +123,13 @@ guide for a more detailed explanation.
 
 ### Usage
 
-#### Environment variables
+#### Secrets
 
-To run the Bot you will need to set 2 environment variables first.
+To run the Bot you will need to set a couple of secrets first.
+You can set these secret either as environment variables or using the [dotnet secret manager](https://learn.microsoft.com/en-us/aspnet/core/security/app-secrets#set-a-secret).
 
-- `BOT_TOKEN` : Add your bot token as the value. The bot token van be
-  found [here](https://discord.com/developers/applications/).
-- `MONGO_CON_STRING` : Add your MongoDB connection string as the value. You can get a free MongoDB host
-  on [MongoDB Atlas](https://www.mongodb.com/atlas/database).
+- `BOT_TOKEN` : Add your bot token as the value. The bot token van be found [here](https://discord.com/developers/applications/).
+- `MONGO_CON_STRING` : Add your MongoDB connection string as the value. You can get a free MongoDB host on [MongoDB Atlas](https://www.mongodb.com/atlas/database).
 
 #### Constants
 
