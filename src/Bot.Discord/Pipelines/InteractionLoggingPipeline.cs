@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics;
 using Bot.Discord.Extensions;
+using Bot.Discord.Helpers;
 using Bot.persistence.Domain.Models;
 using Bot.persistence.UnitOfWorks;
 using Color_Chan.Discord.Commands;
@@ -12,27 +13,27 @@ using MongoDB.Bson;
 namespace Bot.Discord.Pipelines;
 
 /// <summary>
-///     A pipeline that will measure the performance of the slash commands
+///     A pipeline that will measure the performance of the interaction
 ///     and log the slash command requests.
 /// </summary>
-public class CommandLoggingPipeline : ISlashCommandPipeline
+public class InteractionLoggingPipeline : IInteractionPipeline
 {
-    private readonly ILogger<CommandLoggingPipeline> _logger;
+    private readonly ILogger<InteractionLoggingPipeline> _logger;
     private readonly IUnitOfWork _unitOfWork;
 
     /// <summary>
-    ///     Initializes a new instance of <see cref="CommandLoggingPipeline" />.
+    ///     Initializes a new instance of <see cref="InteractionLoggingPipeline" />.
     /// </summary>
-    /// <param name="logger">The logger that will log the performance of the slash commands to the console.</param>
+    /// <param name="logger">The logger that will log the performance of the interaction to the console.</param>
     /// <param name="unitOfWork">The <see cref="IUnitOfWork" /> that will executed queries on the DB.</param>
-    public CommandLoggingPipeline(ILogger<CommandLoggingPipeline> logger, IUnitOfWork unitOfWork)
+    public InteractionLoggingPipeline(ILogger<InteractionLoggingPipeline> logger, IUnitOfWork unitOfWork)
     {
         _logger = logger;
         _unitOfWork = unitOfWork;
     }
 
     /// <inheritdoc />
-    public async Task<Result<IDiscordInteractionResponse>> HandleAsync(ISlashCommandContext context, SlashCommandHandlerDelegate next)
+    public async Task<Result<IDiscordInteractionResponse>> HandleAsync(IInteractionContext context, InteractionHandlerDelegate next)
     {
         var sw = new Stopwatch();
 
@@ -48,11 +49,13 @@ public class CommandLoggingPipeline : ISlashCommandPipeline
         return result;
     }
 
-    private async Task LogCommandRequestAsync(ISlashCommandContext context, Result<IDiscordInteractionResponse> result, Stopwatch sw)
+    private async Task LogCommandRequestAsync(IInteractionContext context, Result<IDiscordInteractionResponse> result, Stopwatch sw)
     {
         var request = new Request
         {
-            Command = context.SlashCommandName.GetFullCommandName(),
+            Command = context is SlashCommandContext slashCommandContext
+                ? slashCommandContext.SlashCommandName.GetFullCommandName()
+                : (context.Data.CustomId ?? context.MethodName) ?? "unknown",
             IsSuccessful = result.IsSuccessful,
             ErrorMessage = result.ErrorResult?.ErrorMessage,
             MessageId = context.InteractionId,
@@ -64,10 +67,12 @@ public class CommandLoggingPipeline : ISlashCommandPipeline
             BsonObjectId = ObjectId.GenerateNewId().ToString()
         };
 
+        request.Command = CommandHelper.SanitizeCommandName(request.Command);
+
         await _unitOfWork.Requests.AddAsync(request).ConfigureAwait(false);
         await _unitOfWork.DailyStats.IncrementCommandsUsedAsync().ConfigureAwait(false);
 
-        _logger.Log(sw.ElapsedMilliseconds > 1500 ? LogLevel.Warning : LogLevel.Debug, "Executed slash command {SlashCommandName} in {ElapsedMilliseconds}ms - {IsSuccessful}",
+        _logger.Log(sw.ElapsedMilliseconds > 1500 ? LogLevel.Warning : LogLevel.Debug, "Executed interaction {InteractionName} in {ElapsedMilliseconds}ms - {IsSuccessful}",
                     request.Command,
                     sw.ElapsedMilliseconds.ToString(),
                     request.IsSuccessful ? "Successfully" : "Unsuccessfully");

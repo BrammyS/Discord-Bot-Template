@@ -1,11 +1,13 @@
-﻿namespace Bot.persistence.MongoDb;
+﻿using Microsoft.Extensions.Configuration;
+
+namespace Bot.persistence.MongoDb;
 
 public class ConnectionStringHelper
 {
-    public static string GetMongoDbConnectionString()
+    public static string GetMongoDbConnectionString(IConfiguration configuration)
     {
         // https://docs.mongodb.com/manual/reference/connection-string/
-        var connectionString = Environment.GetEnvironmentVariable("MONGO_CON_STRING");
+        var connectionString = configuration["MONGO_CON_STRING"];
 
         if (string.IsNullOrWhiteSpace(connectionString))
         {
