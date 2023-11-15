@@ -77,8 +77,8 @@ simple [MongoDB](https://www.mongodb.com/) connection.
 
 ### Built With
 
-* [.NET 7](https://dotnet.microsoft.com/download/dotnet/7.0)
-* [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0)
+* [.NET 8](https://dotnet.microsoft.com/download/dotnet/8.0)
+* [ASP.NET](https://docs.microsoft.com/en-us/aspnet/core/?view=aspnetcore-8.0)
 * [Color-Chan.Discord](https://github.com/Color-Chan/Color-Chan.Discord)
 * [Serilog.Sinks.Mongodb.TimeSeries](https://github.com/BrammyS/Serilog.Sinks.Mongodb.TimeSeries)
 
@@ -90,7 +90,7 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-* [.NET 7](https://dotnet.microsoft.com/download/dotnet/7.0)
+* [.NET 8](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ### Installation
 
