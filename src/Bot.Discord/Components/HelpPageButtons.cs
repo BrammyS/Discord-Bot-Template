@@ -2,6 +2,7 @@
 using Color_Chan.Discord.Commands.Attributes;
 using Color_Chan.Discord.Commands.Attributes.ProvidedRequirements;
 using Color_Chan.Discord.Commands.MessageBuilders;
+using Color_Chan.Discord.Commands.MessageBuilders.Components;
 using Color_Chan.Discord.Commands.Modules;
 using Color_Chan.Discord.Core.Common.API.DataModels;
 using Color_Chan.Discord.Core.Common.Models;
@@ -123,26 +124,70 @@ public class HelpPageButtons : ComponentInteractionModule
 
     public static readonly IDiscordComponent ButtonsNoBack =
         new ActionRowComponentBuilder()
-            .WithButton("Previous", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous", disabled: true)
-            .WithButton("Next", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next")
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Previous")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous")
+                    .WithDisabled(true)
+            )
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Next")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next")
+            )
             .Build();
 
-    public static readonly IDiscordComponent Buttons =
+    private static readonly IDiscordComponent Buttons =
         new ActionRowComponentBuilder()
-            .WithButton("Previous", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous")
-            .WithButton("Next", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next")
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Previous")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous")
+            )
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Next")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next")
+            )
             .Build();
 
-    public static readonly IDiscordComponent ButtonsNoNext =
+    private static readonly IDiscordComponent ButtonsNoNext =
         new ActionRowComponentBuilder()
-            .WithButton("Previous", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous")
-            .WithButton("Next", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next", disabled: true)
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Previous")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous")
+            )
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Next")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next")
+                    .WithDisabled(true)
+            )
             .Build();
 
-    public static readonly IDiscordComponent ButtonsAllDisabled =
+    private static readonly IDiscordComponent ButtonsAllDisabled =
         new ActionRowComponentBuilder()
-            .WithButton("Previous", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous", disabled: true)
-            .WithButton("Next", DiscordButtonStyle.Primary, $"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next", disabled: true)
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Previous")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}previous")
+                    .WithDisabled(true)
+            )
+            .WithSubComponent(
+                new ButtonComponentBuilder()
+                    .WithLabel("Next")
+                    .WithStyle(DiscordButtonStyle.Primary)
+                    .WithCustomId($"{ChangeHelpPageButtonId}{Constants.ArgsSeparator}next")
+                    .WithDisabled(true)
+            )
             .Build();
 
     #endregion
