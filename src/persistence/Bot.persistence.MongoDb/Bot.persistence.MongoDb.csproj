@@ -11,7 +11,7 @@
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.7" />
         <PackageReference Include="MongoDB.Driver" Version="3.8.0" />
         <PackageReference Include="Serilog" Version="4.3.1" />
-        <PackageReference Include="Serilog.Sinks.Mongodb.TimeSeries" Version="6.0.1" />
+        <PackageReference Include="Serilog.Sinks.Mongodb.TimeSeries" Version="6.0.2" />
     </ItemGroup>
 
     <ItemGroup>
